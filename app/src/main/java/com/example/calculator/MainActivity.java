@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * ayyyy
+     * @param
+     */
+
     public void calculate (View v){
         EditText numOneText = findViewById(R.id.firstNum);
         EditText numTwoText = findViewById(R.id.secondNum);
