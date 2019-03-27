@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+//hi
    /* public void openCamera (View v){
         EditText numOneText = findViewById(R.id.firstNum);
         EditText numTwoText = findViewById(R.id.secondNum);
