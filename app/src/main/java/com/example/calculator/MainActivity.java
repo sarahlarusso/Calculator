@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void calculate (View v){
+   /* public void openCamera (View v){
         EditText numOneText = findViewById(R.id.firstNum);
         EditText numTwoText = findViewById(R.id.secondNum);
 
@@ -43,5 +43,5 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Adding values: " + numOne + " and " + numTwo, Toast.LENGTH_LONG);
         toast.show();
-    }
+    } */
 }
