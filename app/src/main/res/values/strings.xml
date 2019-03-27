@@ -2,10 +2,9 @@
     <string name="app_name">People</string>
     <string name="name">Type the Name:</string>
     <string name="nameHint">Name</string>
-    <string name="relation">Type the relationship</string>
+    <string name="relation">Type the Relationship</string>
     <string name="relationHint">Relationship</string>
     <string name="set">Okay</string>
-    <string name="nikhil_krishnan">Name</string>
-    <string name="father_in_law">Relation</string>
     <string name="camerabutton">open camera</string>
+    <string name="done">Okay</string>
 </resources>
