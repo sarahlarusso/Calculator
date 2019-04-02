@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         TextView answerText = (TextView) findViewById(R.id.answerLabel);
         answerText.setText(ans.toString());
 
+
+
+
+
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Adding values: " + numOne + " and " + numTwo, Toast.LENGTH_LONG);
         toast.show();
