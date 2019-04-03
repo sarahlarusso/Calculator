@@ -1,10 +1,17 @@
 <resources>
-    <string name="app_name">People</string>
+    <string name="app_name">APPNAME</string>
+
     <string name="name">Type the Name:</string>
     <string name="nameHint">Name</string>
     <string name="relation">Type the Relationship</string>
     <string name="relationHint">Relationship</string>
     <string name="set">Okay</string>
+
     <string name="camerabutton">open camera</string>
     <string name="done">Okay</string>
+    <string name="todo">TODO</string>
+
+    <string name="home1">Add a person</string>
+    <string name="home2">View People</string>
+    <string name="welcome">Welcome</string>
 </resources>

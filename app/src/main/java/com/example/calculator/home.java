@@ -15,7 +15,7 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        ImageButton btnCamera = findViewById(R.id.cameraButton);
+        Button btnCamera = findViewById(R.id.camerabutton);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
