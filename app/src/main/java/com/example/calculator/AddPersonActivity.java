@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,10 @@ public class AddPersonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String imgData = bundle.getString("Image Data String");
     }
 
     public void addPerson (View v) {
@@ -26,7 +31,4 @@ public class AddPersonActivity extends AppCompatActivity {
         Log.d(TAG, "User input: " + relationStr);
 
     }
-
-
-
-    }
+}

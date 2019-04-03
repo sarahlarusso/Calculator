@@ -8,12 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class home extends AppCompatActivity {
+
+    ArrayList<Person> personArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        personArrayList = new ArrayList<Person>();
+
 
         Button btnCamera = findViewById(R.id.camerabutton);
 
@@ -30,7 +37,10 @@ public class home extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         String imageData = data.getDataString();
 
-
+        Intent intent = new Intent(this, AddPersonActivity.class);
+        intent.putExtra("Image Data String", imageData);
+        intent.putExtra("Person Array List", personArrayList);
+        startActivity(intent);
 
     }
 }
