@@ -1,51 +1,55 @@
 package com.example.calculator;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
+    private String imgData;
+    private String name;
+    private String relationship;
+    ImageView imageView;
+    TextView nameDisplay;
+    TextView relationDisplay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-   /* public void openCamera (View v){
-        EditText numOneText = findViewById(R.id.firstNum);
-        EditText numTwoText = findViewById(R.id.secondNum);
+        imageView = (ImageView) findViewById(R.id.personImg);
+        nameDisplay = findViewById(R.id.nameText);
+        relationDisplay = findViewById(R.id.relationText);
 
-        String numOneStr = numOneText.getText().toString();
-        String numTwoStr = numTwoText.getText().toString();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        imgData = bundle.getString("Image Data");
+        name = bundle.getString("Name");
+        relationship = bundle.getString("Relationship");
 
-        Log.d(TAG, "User input: " + numOneStr);
-        Log.d(TAG, "User input: " + numTwoStr);
+        nameDisplay.setText(name);
+        relationDisplay.setText(relationship);
 
-        if (numOneStr.isEmpty())
-            numOneStr = "0";
-        if (numTwoStr.isEmpty())
-            numTwoStr = "0";
-
-        Double numOne = Double.parseDouble(numOneStr);
-        Double numTwo = Double.parseDouble(numTwoStr);
-        Double ans = numOne + numTwo;
-
-        TextView answerText = (TextView) findViewById(R.id.answerLabel);
-        answerText.setText(ans.toString());
-
-
-
-
+        Uri imageUri = Uri.parse(imgData);
+        imageView.setImageURI(imageUri);
 
         Toast toast = Toast.makeText(getApplicationContext(),
-                "Adding values: " + numOne + " and " + numTwo, Toast.LENGTH_LONG);
+                "AYAYYYYYAYA Yurrrrd",
+                Toast.LENGTH_LONG);
         toast.show();
-    } */
+
+        Log.d(TAG, name);
+        Log.d(TAG, relationship);
+        Log.d(TAG, imgData);
+    }
 }

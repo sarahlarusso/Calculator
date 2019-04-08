@@ -7,7 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class AddPersonActivity extends AppCompatActivity {
+
+    private String imgData;
+    //ArrayList<Person> personArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +21,7 @@ public class AddPersonActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        String imgData = bundle.getString("Image Data String");
+        imgData = bundle.getString("Image Data String");
     }
 
     public void addPerson (View v) {
@@ -26,9 +31,16 @@ public class AddPersonActivity extends AppCompatActivity {
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
 
-        String TAG = "Add Person Page";
-        Log.d(TAG, "User input: " + nameStr);
-        Log.d(TAG, "User input: " + relationStr);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("Name", nameStr);
+        intent.putExtra("Relationship", relationStr);
+        intent.putExtra("Image Data", imgData);
+        startActivity(intent);
+
+//        String TAG = "Add Person Page";
+//        Log.d(TAG, "User input: " + nameStr);
+//        Log.d(TAG, "User input: " + relationStr);
 
     }
+
 }
