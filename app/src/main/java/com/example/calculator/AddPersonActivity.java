@@ -3,16 +3,13 @@ package com.example.calculator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
-import java.util.ArrayList;
 
 public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
-    ArrayList<Person> personArrayList;
+    //ArrayList<Person> personArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +19,11 @@ public class AddPersonActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
-        //personArrayList = ArrayList<Person> bundle.getParcelableArrayList("Person Array List");
-
     }
 
     public void addPerson (View v) {
-        EditText name = findViewById(R.id.txtName);
-        EditText relation = findViewById(R.id.txtRelation);
+        EditText name = findViewById(R.id.apNametxt);
+        EditText relation = findViewById(R.id.apRelationtxt);
 
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
@@ -45,8 +40,8 @@ public class AddPersonActivity extends AppCompatActivity {
 
     }
 
-    public void cancel (View v){
-
+    public void cancel (View v) {
+        Intent intent = new Intent(this, home.class);
+        startActivity(intent);
     }
-
 }

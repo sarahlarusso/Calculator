@@ -43,4 +43,10 @@ public class home extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    protected void viewPeople(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+    }
 }

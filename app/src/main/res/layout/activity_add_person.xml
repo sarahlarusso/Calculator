@@ -7,7 +7,7 @@
     tools:context=".AddPersonActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/apName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.107" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/apRelation"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:text="@string/relation"
@@ -33,10 +33,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.451" />
 
     <EditText
-        android:id="@+id/txtName"
+        android:id="@+id/apNametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.247" />
 
     <EditText
-        android:id="@+id/txtRelation"
+        android:id="@+id/apRelationtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -79,17 +79,32 @@
 
     <Button
         android:id="@+id/donebutton"
-        android:layout_width="112dp"
+        android:layout_width="120dp"
         android:layout_height="53dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="160dp"
         android:onClick="addPerson"
         android:text="@string/done"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRelation"
+        app:layout_constraintTop_toBottomOf="@+id/apRelationtxt"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/cancelbutton"
+        android:layout_width="120dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="90dp"
+        android:onClick="cancel"
+        android:text="@string/cancel"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apRelationtxt"
+        app:layout_constraintVertical_bias="50.0" />
 
 </android.support.constraint.ConstraintLayout>
