@@ -4,16 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/home"
+    android:background="#2E4159"
     tools:context=".home">
+
+    <Button
+        android:id="@+id/button1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="6dp"
+        android:padding="7dp"
+        android:text="@string/home2"
+        android:textColor="#FFFFE0"
+        android:textSize="38sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.7"
+        android:background="@drawable/button_round"
+        />
+
+
+    />
 
     <TextView
         android:id="@+id/textHome"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:layout_marginStart="231dp"
         android:layout_marginLeft="231dp"
         android:layout_marginEnd="231dp"
+        android:typeface="serif"
         android:layout_marginRight="231dp"
         android:layout_marginBottom="100dp"
         android:lineSpacingExtra="35sp"
@@ -28,38 +53,26 @@
 
     <Button
         android:id="@+id/camerabutton"
+
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:shape="rectangle"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray"
         android:lineSpacingExtra="12sp"
         android:text="@string/home1"
-        android:textColor="@color/colorPrimary"
+        android:padding="7dp"
+        android:textColor="#FFFFE0"
         android:textSize="38sp"
+        android:background="@drawable/button_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:typeface="serif"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.61" />
 
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray"
-        android:text="@string/home2"
-        android:textColor="@color/colorPrimary"
-        android:textSize="38sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
 
 
 </android.support.constraint.ConstraintLayout>

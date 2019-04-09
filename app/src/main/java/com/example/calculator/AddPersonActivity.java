@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
-    //ArrayList<Person> personArrayList;
+    ArrayList<Person> personArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class AddPersonActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
+        //personArrayList = ArrayList<Person> bundle.getParcelableArrayList("Person Array List");
+
     }
 
     public void addPerson (View v) {
@@ -40,6 +42,10 @@ public class AddPersonActivity extends AppCompatActivity {
 //        String TAG = "Add Person Page";
 //        Log.d(TAG, "User input: " + nameStr);
 //        Log.d(TAG, "User input: " + relationStr);
+
+    }
+
+    public void cancel (View v){
 
     }
 
