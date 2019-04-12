@@ -9,10 +9,14 @@
 
     <string name="camerabutton">open camera</string>
     <string name="done">Okay</string>
-    <string name="todo">TODO</string>
+
     <string name="cancel">Cancel</string>
 
     <string name="home1">Add a person</string>
     <string name="home2">View People</string>
     <string name="welcome">Welcome</string>
+    <string name="string">✧</string>
+    <string name="welcome">Welcome</string>
+
+
 </resources>
