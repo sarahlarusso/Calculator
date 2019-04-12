@@ -25,8 +25,8 @@ public class home extends AppCompatActivity {
         Button btnCamera = findViewById(R.id.camerabutton);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 0);
             }

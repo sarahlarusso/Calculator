@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
-    //ArrayList<Person> personArrayList;
+    ArrayList<Person> personArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class AddPersonActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
+        personArrayList = bundle.getParcelableArrayList("Person Array List");
     }
 
     public void addPerson (View v) {
