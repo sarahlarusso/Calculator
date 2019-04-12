@@ -3,7 +3,7 @@
 
     <string name="name">Type the Name:</string>
     <string name="nameHint">Name</string>
-    <string name="relation">Type the Relationship</string>
+    <string name="relation">Type the Relationship:</string>
     <string name="relationHint">Relationship</string>
     <string name="set">Okay</string>
 
