@@ -6,6 +6,7 @@
     <string name="relation">Type the Relationship:</string>
     <string name="relationHint">Relationship</string>
     <string name="set">Okay</string>
+    <string name="todo">TODO</string>
 
     <string name="camerabutton">open camera</string>
     <string name="done">Okay</string>
@@ -16,7 +17,6 @@
     <string name="home2">View People</string>
     <string name="welcome">Welcome</string>
     <string name="string">✧</string>
-    <string name="welcome">Welcome</string>
 
 
 </resources>
