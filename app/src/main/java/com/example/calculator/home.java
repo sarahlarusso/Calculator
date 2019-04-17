@@ -45,8 +45,11 @@ public class home extends AppCompatActivity {
     }
 
     protected void viewPeople(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        if(personArrayList!=null) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("Person Array List", personArrayList);
+            startActivity(intent);
+        }
 
     }
 }

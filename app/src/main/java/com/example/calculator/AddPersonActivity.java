@@ -31,10 +31,10 @@ public class AddPersonActivity extends AppCompatActivity {
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
 
+        personArrayList.add(new Person(nameStr,relationStr,imgData));
+
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("Name", nameStr);
-        intent.putExtra("Relationship", relationStr);
-        intent.putExtra("Image Data", imgData);
+        intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
 
 //        String TAG = "Add Person Page";

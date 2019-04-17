@@ -14,9 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
+    ArrayList<Person> personArrayList;
     private String imgData;
     private String name;
     private String relationship;
@@ -37,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        personArrayList = bundle.getParcelableArrayList("Person Array List");
 
-        imgData = bundle.getString("Image Data");
-        name = bundle.getString("Name");
-        relationship = bundle.getString("Relationship");
+        int size = personArrayList.size();
+        imgData = personArrayList.get(size-1).getImageData();
+        name = personArrayList.get(size-1).getName();
+        relationship = personArrayList.get(size-1).getRelationship();
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
         imageUri = Uri.parse(imgData);
@@ -55,15 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
-
-
-//        Toast toast = Toast.makeText(getApplicationContext(),
-//                "AYAYYYYYAYA Yurrrrd",
-//                Toast.LENGTH_LONG);
-//        toast.show();
-//        Log.d(TAG, name);
-//        Log.d(TAG, relationship);
-//        Log.d(TAG, imgData);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -71,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         imgData = data.getDataString();
 
         Intent intent = new Intent(this, AddPersonActivity.class);
+        intent.putExtra("Person Array List", personArrayList);
         intent.putExtra("Image Data String", imgData);
         startActivity(intent);
 
