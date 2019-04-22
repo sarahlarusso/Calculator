@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.content.Intent;
+import android.net.wifi.hotspot2.pps.HomeSp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+//This class has methods for the Add Person Page, which allows a user to
+// input information about a Person (their name and relationship), then
+//choose to cancel or add the person to their Collection of People
 public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
@@ -19,6 +23,7 @@ public class AddPersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
 
+        //Takes in the Image Data and the ArrayList<People>
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
@@ -26,6 +31,7 @@ public class AddPersonActivity extends AppCompatActivity {
 
     }
 
+   //Makes a new Person Object, adds it to the ArrayList, and goes to the View People Page
     public void addPerson (View v) {
         EditText name = findViewById(R.id.apNametxt);
         EditText relation = findViewById(R.id.apRelationtxt);
@@ -39,26 +45,20 @@ public class AddPersonActivity extends AppCompatActivity {
         intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
 
-//        String TAG = "Add Person Page";
-//        Log.d(TAG, "User input: " + nameStr);
-//        Log.d(TAG, "User input: " + relationStr);
-
     }
 
     public void cancel (View v) {
         if (personArrayList.size() != 0){
+            //brings to view people
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "You Have No People Yet",
-                    Toast.LENGTH_LONG);
-            toast.show();
+            //brings to home screen
+            Intent intent = new Intent(this, home.class);
+            startActivity(intent);
         }
-
-        //If user has no people in array list, cannot switch screens
 
     }
 }
