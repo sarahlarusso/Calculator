@@ -21,6 +21,7 @@ public class home extends AppCompatActivity {
     ArrayList<Person> personArrayList;
     String fileName = "memoryText";
 
+    //creates/opens the ArrayList<Person> (from the text file)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class home extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        //Begins Opening Camera
         Button btnCamera = findViewById(R.id.camerabutton);
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -60,6 +61,7 @@ public class home extends AppCompatActivity {
         });
     }
 
+    //Continues Camera, and brings the Image Data and the User to the Add Person Screen
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String imageData = data.getDataString();
@@ -70,13 +72,18 @@ public class home extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    //Brings to People if ArrayList != null
+    //If == null, stays on Home screen and toasts that there are no people
     public void viewPeople(View v) {
         if (personArrayList.size() != 0){
+            //Brings to View People
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {
+            //Says that there are no people yet
             Toast toast = Toast.makeText(getApplicationContext(),
                     "You Have No People Yet",
                     Toast.LENGTH_LONG);
