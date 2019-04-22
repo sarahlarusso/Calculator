@@ -75,18 +75,18 @@
 
     <TextView
         android:layout_width="600dp"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
 
         android:layout_marginStart="370dp"
 
         android:layout_marginLeft="30dp"
         android:layout_marginEnd="231dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginBottom="80dp"
-        android:lineSpacingExtra="35sp"
-        android:text="@string/welcome"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="0dp"
+        android:lineSpacingExtra="40sp"
+        android:text="Memory Aid"
         android:textColor="@android:color/white"
-        android:textSize="100sp"
+        android:textSize="72sp"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
