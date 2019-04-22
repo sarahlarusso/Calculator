@@ -10,8 +10,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class AddPersonActivity extends AppCompatActivity {
-    //push git-nonnie
 
+    //helllooooo nonnie :)
     private String imgData;
     ArrayList<Person> personArrayList;
 
