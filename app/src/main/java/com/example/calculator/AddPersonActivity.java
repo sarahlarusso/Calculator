@@ -58,5 +58,7 @@ public class AddPersonActivity extends AppCompatActivity {
             toast.show();
         }
 
+        //If user has no people in array list, cannot switch screens
+
     }
 }
