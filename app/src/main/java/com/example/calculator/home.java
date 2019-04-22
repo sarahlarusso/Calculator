@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class home extends AppCompatActivity {
 
     ArrayList<Person> personArrayList;
+    String fileName = "memoryText";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +28,29 @@ public class home extends AppCompatActivity {
 
         personArrayList = new ArrayList<Person>();
 
+        FileInputStream inputStream = null;
+        try {
+            inputStream = openFileInput(fileName);
+            InputStreamReader streamReader = new InputStreamReader(inputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(streamReader);
+            String line = "";
+
+            while ((line = bufferedReader.readLine()) != null){
+                String[] fields = line.split(",");
+
+               personArrayList.add(new Person(fields[1],fields[2],fields[3]));
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         Button btnCamera = findViewById(R.id.camerabutton);
-
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -41,14 +68,19 @@ public class home extends AppCompatActivity {
         intent.putExtra("Image Data String", imageData);
         intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
-
     }
 
-    protected void viewPeople(View v) {
-        if(personArrayList!=null) {
+    public void viewPeople(View v) {
+        if (personArrayList.size() != 0){
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
+        }
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "You Have No People Yet",
+                    Toast.LENGTH_LONG);
+            toast.show();
         }
 
     }

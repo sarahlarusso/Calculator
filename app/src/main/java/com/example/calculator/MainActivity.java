@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     TextView nameDisplay;
     TextView relationDisplay;
     Uri imageUri;
+    int index = 0;
+    ImageButton rightButton;
+    ImageButton leftButton;
 
 
     @Override
@@ -37,20 +40,31 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.personImg);
         nameDisplay = findViewById(R.id.nameText);
         relationDisplay = findViewById(R.id.relationText);
+        rightButton = findViewById(R.id.rightButton);
+        leftButton = findViewById(R.id.leftButton);
+
+
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         personArrayList = bundle.getParcelableArrayList("Person Array List");
 
-        int size = personArrayList.size();
-        imgData = personArrayList.get(size-1).getImageData();
-        name = personArrayList.get(size-1).getName();
-        relationship = personArrayList.get(size-1).getRelationship();
+        index = personArrayList.size() - 1;
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Array List size: " + personArrayList.size(),
+                Toast.LENGTH_LONG);
+        toast.show();
+
+
+        imgData = personArrayList.get(index).getImageData();
+        name = personArrayList.get(index).getName();
+        relationship = personArrayList.get(index).getRelationship();
+
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
+
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
-
 
         ImageButton addPerson = findViewById(R.id.AddPersonButton);
         addPerson.setOnClickListener(new View.OnClickListener() {
@@ -71,5 +85,40 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Image Data String", imgData);
         startActivity(intent);
 
+    }
+
+    public void leftButton(View v){
+        index--;
+        if (index == -1){
+            index = personArrayList.size()-1;
+        }
+
+        imgData = personArrayList.get(index).getImageData();
+        name = personArrayList.get(index).getName();
+        relationship = personArrayList.get(index).getRelationship();
+
+
+        nameDisplay.setText(name);
+        relationDisplay.setText(relationship);
+
+        imageUri = Uri.parse(imgData);
+        imageView.setImageURI(imageUri);
+    }
+
+    public void rightButton(View v){
+        index++;
+        if (index == personArrayList.size()){
+            index = 0;
+        }
+
+        imgData = personArrayList.get(index).getImageData();
+        name = personArrayList.get(index).getName();
+        relationship = personArrayList.get(index).getRelationship();
+
+        nameDisplay.setText(name);
+        relationDisplay.setText(relationship);
+
+        imageUri = Uri.parse(imgData);
+        imageView.setImageURI(imageUri);
     }
 }

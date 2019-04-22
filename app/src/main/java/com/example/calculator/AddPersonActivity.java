@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class AddPersonActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
         personArrayList = bundle.getParcelableArrayList("Person Array List");
+
     }
 
     public void addPerson (View v) {
@@ -44,7 +46,17 @@ public class AddPersonActivity extends AppCompatActivity {
     }
 
     public void cancel (View v) {
-        Intent intent = new Intent(this, home.class);
-        startActivity(intent);
+        if (personArrayList.size() != 0){
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("Person Array List", personArrayList);
+            startActivity(intent);
+        }
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "You Have No People Yet",
+                    Toast.LENGTH_LONG);
+            toast.show();
+        }
+
     }
 }

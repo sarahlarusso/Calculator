@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginBottom="3dp"
+        android:background="@drawable/buttonround"
+        android:onClick="viewPeople"
         android:padding="7dp"
         android:text="@string/home2"
         android:textColor="#FFFFE0"
@@ -21,12 +23,10 @@
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.7"
-        android:background="@drawable/buttonround"
-        />
+        app:layout_constraintVertical_bias="0.7" />
 
 
 

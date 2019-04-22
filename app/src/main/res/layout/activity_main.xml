@@ -68,7 +68,7 @@
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <ImageButton
-        android:id="@+id/right"
+        android:id="@+id/rightButton"
         android:layout_width="75dp"
         android:layout_height="60dp"
         app:srcCompat="@android:drawable/ic_media_next"
@@ -78,6 +78,7 @@
         android:layout_marginTop="360dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="200dp"
+        android:onClick="rightButton"
         android:layout_marginRight="200dp"
         app:layout_constraintStart_toEndOf="@+id/personImg"
         android:layout_marginLeft="84dp"
@@ -85,7 +86,7 @@
         android:contentDescription="@string/todo" />
 
     <ImageButton
-        android:id="@+id/left"
+        android:id="@+id/leftButton"
         android:layout_width="75dp"
         android:layout_height="60dp"
         app:srcCompat="@android:drawable/ic_media_previous"
@@ -93,6 +94,7 @@
         android:layout_marginTop="360dp"
         android:layout_marginEnd="546dp"
         android:layout_marginRight="546dp"
+        android:onClick="leftButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="84dp"
