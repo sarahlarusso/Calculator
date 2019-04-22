@@ -16,18 +16,25 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+//This activity holds methods for the Main Activity (View People) Screen.
+//It includes displaying the most recently added person, and the
+//person directly before and after that index.
+//It can also open the camera from this screen, to add another person
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
     ArrayList<Person> personArrayList;
+
     private String imgData;
     private String name;
     private String relationship;
+
     ImageView imageView;
     TextView nameDisplay;
     TextView relationDisplay;
     Uri imageUri;
     int index = 0;
+
     ImageButton rightButton;
     ImageButton leftButton;
 
@@ -37,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Creates Image Displays
         imageView = (ImageView) findViewById(R.id.personImg);
         nameDisplay = findViewById(R.id.nameText);
         relationDisplay = findViewById(R.id.relationText);
@@ -44,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         leftButton = findViewById(R.id.leftButton);
 
 
-
+        //Gets the ArrayList<Person>
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         personArrayList = bundle.getParcelableArrayList("Person Array List");
@@ -55,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG);
         toast.show();
 
-
+        //Displays the Information of the most recently added Person
         imgData = personArrayList.get(index).getImageData();
         name = personArrayList.get(index).getName();
         relationship = personArrayList.get(index).getRelationship();
@@ -66,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
 
+        //Opens Camera
         ImageButton addPerson = findViewById(R.id.AddPersonButton);
         addPerson.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Opens Camera (Continued)
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         imgData = data.getDataString();
@@ -87,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Displays the Person at the current index - 1
     public void leftButton(View v){
         index--;
         if (index == -1){
@@ -105,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageURI(imageUri);
     }
 
+    //Displays the Person at the current index + 1
     public void rightButton(View v){
         index++;
         if (index == personArrayList.size()){
