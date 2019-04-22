@@ -59,8 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         index = personArrayList.size() - 1;
         Toast toast = Toast.makeText(getApplicationContext(),
-                "Array List size: " + personArrayList.size(),
+                "Amount of People:" + personArrayList.size(),
                 Toast.LENGTH_LONG);
+
         toast.show();
 
         //Displays the Information of the most recently added Person
