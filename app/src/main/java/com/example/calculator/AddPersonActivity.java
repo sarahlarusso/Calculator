@@ -23,7 +23,7 @@ public class AddPersonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
 
-        //Takes in the Image Data and the ArrayList<People>
+        //Takes in the Image Data and the ArrayList of People
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
