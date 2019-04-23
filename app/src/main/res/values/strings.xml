@@ -17,6 +17,9 @@
     <string name="home2">View People</string>
     <string name="welcome">Welcome</string>
     <string name="string">✧</string>
+    <string name="delete">Delete</string>
+    <string name="string_delete" />
+    <string name="delete1">delete</string>
 
 
 </resources>
