@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton rightButton;
     ImageButton leftButton;
+    Button deleteButton;
 
 
     @Override
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         relationDisplay = findViewById(R.id.relationText);
         rightButton = findViewById(R.id.rightButton);
         leftButton = findViewById(R.id.leftButton);
+        deleteButton=findViewById(R.id.delete1);
 
 
         //Gets the ArrayList<Person>
@@ -103,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         index--;
         if (index == -1){
             index = personArrayList.size()-1;
+            //go through the array list from the end, displaying people
         }
 
         imgData = personArrayList.get(index).getImageData();
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         imgData = personArrayList.get(index).getImageData();
         name = personArrayList.get(index).getName();
         relationship = personArrayList.get(index).getRelationship();
+        //retrieve the information on the text
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -134,4 +138,32 @@ public class MainActivity extends AppCompatActivity {
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
     }
-}
+
+
+    //Deletes the person from the arraylist
+    public void deleteButton (View v) {
+        if(personArrayList.size()==1) {
+            personArrayList.remove(index);
+            Intent intent = new Intent(this, home.class);
+            startActivity(intent);
+        }
+            if ( personArrayList.size()>1) {
+
+            personArrayList.remove(index);
+            leftButton(v);
+
+        }
+
+            }
+
+
+
+
+
+
+    }
+
+
+
+
+

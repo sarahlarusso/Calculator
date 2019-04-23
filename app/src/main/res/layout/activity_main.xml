@@ -26,10 +26,10 @@
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="180dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="120dp"
         android:text="@string/nameHint"
-        android:textSize="36sp"
+        android:textSize="52sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         android:layout_marginRight="58dp"
         android:layout_marginBottom="150dp"
         android:text="@string/relationHint"
-        android:textSize="36sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,5 +100,14 @@
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
         android:contentDescription="@string/todo" />
+
+    <Button
+        android:id="@+id/delete1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete1"
+        tools:layout_editor_absoluteX="481dp"
+        tools:layout_editor_absoluteY="885dp"
+        android:onClick="deleteButton" />
 
 </android.support.constraint.ConstraintLayout>
