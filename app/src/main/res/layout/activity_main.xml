@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
-        android:layout_height="53dp"
+        android:layout_height="70dp"
         android:layout_marginTop="120dp"
         android:text="@string/nameHint"
         android:textSize="52sp"
