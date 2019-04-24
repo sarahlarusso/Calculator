@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+//This class is the home page that opens when the user opens the app
+//The page initializes/reads the ArrayList of People from the test file
+//From this page the user can go to the camera, or view people if there are people
 public class home extends AppCompatActivity {
 
     ArrayList<Person> personArrayList;
