@@ -7,6 +7,7 @@ import android.net.wifi.hotspot2.pps.HomeSp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
@@ -21,26 +22,33 @@ public class activity_taskview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taskview);
+        Button tasks=(Button)findViewById(R.id.tasksbutton);
     }
     public void onCheckboxClicked(View v) {
-        CheckBox chk = (CheckBox) findViewById(R.id.checkBox1);
+        final CheckBox chk = (CheckBox) findViewById(R.id.checkBox1);
 
         chk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean checked = ((CheckBox) v).isChecked();
-
                 if (checked) {
+
                     Toast toast = Toast.makeText(getApplicationContext(),
-                                "You have to do this task",
+                            "You have to complete this task",
+
+
                             Toast.LENGTH_LONG);
                     toast.show();
 
 
                 }
+
+
             }
         });
     }
+
+
 
 }
 
