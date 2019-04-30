@@ -10,9 +10,9 @@
     <ImageView
         android:id="@+id/personImg"
         android:layout_width="530dp"
-        android:layout_height="530dp"
+        android:layout_height="500dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="60dp"
         android:contentDescription="@string/name"
         android:rotation="90"
         app:layout_constraintBottom_toBottomOf="parent"

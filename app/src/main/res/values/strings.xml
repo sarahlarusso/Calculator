@@ -27,6 +27,9 @@
     <string name="take_a_shower">Take a shower</string>
     <string name="brush_your_teeth">Brush your teeth</string>
     <string name="tasks_page">Tasks Page</string>
+    <string name="memory_aid">Memory Aid</string>
+    <string name="add_tasks">Add Tasks</string>
+    <string name="task_string_delete1">Task @string/delete1</string>
 
 
 </resources>

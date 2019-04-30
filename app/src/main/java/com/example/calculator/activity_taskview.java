@@ -25,27 +25,46 @@ public class activity_taskview extends AppCompatActivity {
         Button tasks=(Button)findViewById(R.id.tasksbutton);
     }
     public void onCheckboxClicked(View v) {
-        final CheckBox chk = (CheckBox) findViewById(R.id.checkBox1);
 
-        chk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean checked = ((CheckBox) v).isChecked();
+        boolean checked = ((CheckBox) v).isChecked();
+
+
+        switch(v.getId()) {
+            case R.id.checkBox1:
                 if (checked) {
-
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "You have to complete this task",
-
-
+                            "You have to do this task",
                             Toast.LENGTH_LONG);
                     toast.show();
-
-
                 }
+            case R.id.checkBox2:
+                if (checked){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "You have to do this task",
+                            Toast.LENGTH_LONG);
+                toast.show();}
+
+            case R.id.checkBox3:
+                if (checked){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "You have to do this task",
+                            Toast.LENGTH_LONG);
+                    toast.show();}
+            case R.id.checkBox4:
+                if (checked){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "You have to do this task",
+                            Toast.LENGTH_LONG);
+                    toast.show();}
+
+                break;
+
+        }
+    }
 
 
             }
-        });
+        })}
     }
 
 
