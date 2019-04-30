@@ -64,8 +64,8 @@ public class activity_taskview extends AppCompatActivity {
 
 
             }
-        })}
-    }
+
+
 
 
 

@@ -8,6 +8,9 @@ public class Person implements Parcelable {
     String relationship;
     String imageData;
 
+
+
+
     public Person (String name, String relationship, String imageData){
         this.name = name;
         this.relationship = relationship;

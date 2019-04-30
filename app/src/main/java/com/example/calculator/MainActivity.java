@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     //Displays the Person at the current index - 1
     public void leftButton(View v){
         index--;

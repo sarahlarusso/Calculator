@@ -94,4 +94,19 @@ public class home extends AppCompatActivity {
         }
 
     }
+    public void gotoTasks(View v){
+
+        Button btnCamera = findViewById(R.id.camerabutton);
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                v.getContext().startActivity(intent);
+            }
+
+
+        });
+
+    }
 }

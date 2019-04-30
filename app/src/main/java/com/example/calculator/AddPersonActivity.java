@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 
 //This class has methods for the Add Person Page, which allows a user to
 // input information about a Person (their name and relationship), then
 //choose to cancel or add the person to their Collection of People
 public class AddPersonActivity extends AppCompatActivity {
+
 
     private String imgData;
     ArrayList<Person> personArrayList;
@@ -45,6 +47,7 @@ public class AddPersonActivity extends AppCompatActivity {
         intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
 
+
     }
 
     public void cancel (View v) {
@@ -53,6 +56,9 @@ public class AddPersonActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
+
+
+
         }
         else {
             //brings to home screen
