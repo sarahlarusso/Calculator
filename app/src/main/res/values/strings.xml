@@ -39,6 +39,7 @@
     <string name="add_task">ADD TASK</string>
     <string name="textview">TextView</string>
     <string name="your_tasks">Your Tasks</string>
+    <string name="delete_a_task">DELETE A TASK</string>
 
 
 </resources>
