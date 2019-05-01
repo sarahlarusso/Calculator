@@ -24,34 +24,25 @@ public class activity_taskview extends AppCompatActivity {
         setContentView(R.layout.activity_taskview);
         Button tasks=(Button)findViewById(R.id.tasksbutton);
     }
-    public void okaytasks(View v){
-
-        Button btntasks3 = findViewById(R.id.tasksbutton);
-        btntasks3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), listedtasks.class);
-                v.getContext().startActivity(intent);
-            }
-        });
-
-    }
-
     public void onCheckboxClicked(View v) {
+
         boolean checked = ((CheckBox) v).isChecked();
+
+
         switch(v.getId()) {
             case R.id.checkBox1:
                 if (checked) {
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "You have to do this task",
-                            Toast.LENGTH_LONG);
-                    toast.show(); }
+                            Toast.LENGTH_LONG); 
+                    toast.show();
+                }
             case R.id.checkBox2:
                 if (checked){
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "You have to do this task",
                             Toast.LENGTH_LONG);
-                toast.show(); }
+                toast.show();}
 
             case R.id.checkBox3:
                 if (checked){
@@ -67,11 +58,18 @@ public class activity_taskview extends AppCompatActivity {
                     toast.show();}
 
                 break;
+
         }
     }
 
 
-}
+            }
+
+
+
+
+
+
 
 
 
