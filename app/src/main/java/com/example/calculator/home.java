@@ -101,6 +101,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }
         });
@@ -114,6 +115,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), listedtasks.class);
+                intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }
         });

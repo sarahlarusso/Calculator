@@ -13,8 +13,11 @@ import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class activity_taskview extends AppCompatActivity {
+    ArrayList<Person> personArrayList;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6;
 
 
@@ -23,7 +26,27 @@ public class activity_taskview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taskview);
         Button tasks=(Button)findViewById(R.id.tasksbutton);
+
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        personArrayList = bundle.getParcelableArrayList("Person Array List");
     }
+
+    public void okaytasks(View v){
+
+        Button btntasks3 = findViewById(R.id.tasksbutton);
+        btntasks3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), listedtasks.class);
+                intent.putExtra("Person Array List", personArrayList);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+    }
+
     public void onCheckboxClicked(View v) {
 
         boolean checked = ((CheckBox) v).isChecked();
@@ -60,6 +83,8 @@ public class activity_taskview extends AppCompatActivity {
                 break;
 
         }
+
+
     }
 
 

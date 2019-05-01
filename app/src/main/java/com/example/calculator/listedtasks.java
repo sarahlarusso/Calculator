@@ -15,9 +15,13 @@ public class listedtasks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listedtasks);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        personArrayList = bundle.getParcelableArrayList("Person Array List");
     }
 
-    public void viewPeople(View v) {
+    public void viewPeople2(View v) {
         if (personArrayList.size() != 0){
             //Brings to View People
             Intent intent = new Intent(this, MainActivity.class);
@@ -41,6 +45,7 @@ public class listedtasks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }
 

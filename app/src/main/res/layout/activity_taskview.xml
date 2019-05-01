@@ -26,8 +26,8 @@
             android:id="@+id/title_tasks"
             android:layout_width="match_parent"
             android:layout_height="148dp"
-            android:text="@string/tasks_page"
             android:onClick="onCheckboxClicked"
+            android:text="@string/tasks"
             android:textSize="99sp" />
 
         <CheckBox
