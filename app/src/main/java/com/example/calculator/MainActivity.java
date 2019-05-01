@@ -156,13 +156,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
             }
+    public void gotoTasks(View v){
+
+        Button addT = findViewById(R.id.addtasks8);
+        addT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                intent.putExtra("Person Array List", personArrayList);
+                v.getContext().startActivity(intent);
+            }
+        });
 
 
 
 
 
 
-    }
+
+    }}
 
 
 
