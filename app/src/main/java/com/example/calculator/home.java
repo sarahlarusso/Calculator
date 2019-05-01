@@ -96,8 +96,8 @@ public class home extends AppCompatActivity {
     }
     public void gotoTasks(View v){
 
-        Button btnCamera = findViewById(R.id.camerabutton);
-        btnCamera.setOnClickListener(new View.OnClickListener() {
+        Button btntasks = findViewById(R.id.tasksbutton);
+        btntasks.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -109,4 +109,18 @@ public class home extends AppCompatActivity {
         });
 
     }
-}
+    public void viewTasks(View v){
+
+        Button btntasks2 = findViewById(R.id.tasksbutton2);
+        btntasks2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), listedtasks.class);
+                v.getContext().startActivity(intent);
+            }
+
+
+        });
+
+    }}
