@@ -82,7 +82,8 @@
             android:id="@+id/tasksbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/done2"
-            android:textSize="42sp"/>
+            android:onClick="okaytasks"
+            android:text="@string/done"
+            android:textSize="42sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -98,29 +98,25 @@ public class home extends AppCompatActivity {
 
         Button btntasks = findViewById(R.id.tasksbutton);
         btntasks.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), activity_taskview.class);
                 v.getContext().startActivity(intent);
             }
-
-
         });
 
     }
+
     public void viewTasks(View v){
 
         Button btntasks2 = findViewById(R.id.tasksbutton2);
         btntasks2.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), listedtasks.class);
                 v.getContext().startActivity(intent);
             }
-
-
         });
 
-    }}
+    }
+}

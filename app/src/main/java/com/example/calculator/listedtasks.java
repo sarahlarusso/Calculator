@@ -35,13 +35,15 @@ public class listedtasks extends AppCompatActivity {
     }
 
     public void addTasks2(View v){
-    Button addtasks3 = findViewById(R.id.addtaskbutton);
+        Button addtasks3 = findViewById(R.id.addtaskbutton);
         addtasks3.setOnClickListener(new View.OnClickListener() {
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(v.getContext(), activity_taskview.class);
-            v.getContext().startActivity(intent);
-        }
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                v.getContext().startActivity(intent);
+            }
 
-    });}}
+        });
+
+    }}
