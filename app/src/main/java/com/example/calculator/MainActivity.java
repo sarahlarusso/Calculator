@@ -1,6 +1,8 @@
 package com.example.calculator;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 //This activity holds methods for the Main Activity (View People) Screen.
@@ -37,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton rightButton;
     ImageButton leftButton;
-    Button deleteButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         relationDisplay = findViewById(R.id.relationText);
         rightButton = findViewById(R.id.rightButton);
         leftButton = findViewById(R.id.leftButton);
-        deleteButton=findViewById(R.id.delete1);
 
 
         //Gets the ArrayList<Person>
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         index = personArrayList.size() - 1;
         Toast toast = Toast.makeText(getApplicationContext(),
-                "Amount of People:" + personArrayList.size(),
+                "Amount of People: " + personArrayList.size(),
                 Toast.LENGTH_LONG);
 
         toast.show();
@@ -97,21 +100,18 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Person Array List", personArrayList);
         intent.putExtra("Image Data String", imgData);
         startActivity(intent);
-
     }
 
     //Displays the Person at the current index - 1
-    public void leftButton(View v){
+    public void leftButton(View v) {
         index--;
-        if (index == -1){
-            index = personArrayList.size()-1;
-            //go through the array list from the end, displaying people
+        if (index == -1) {
+            index = personArrayList.size() - 1;
         }
 
         imgData = personArrayList.get(index).getImageData();
         name = personArrayList.get(index).getName();
         relationship = personArrayList.get(index).getRelationship();
-
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -121,16 +121,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Displays the Person at the current index + 1
-    public void rightButton(View v){
+    public void rightButton(View v) {
         index++;
-        if (index == personArrayList.size()){
+        if (index == personArrayList.size()) {
             index = 0;
         }
 
         imgData = personArrayList.get(index).getImageData();
         name = personArrayList.get(index).getName();
         relationship = personArrayList.get(index).getRelationship();
-        //retrieve the information on the text
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -139,31 +138,85 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageURI(imageUri);
     }
 
-
-    //Deletes the person from the arraylist
-    public void deleteButton (View v) {
-        if(personArrayList.size()==1) {
+    public void deleteButton(View v) {
+        if (personArrayList.size() == 1) {
             personArrayList.remove(index);
+
+            String saveText = "";
+            for (Person p : personArrayList) {
+                saveText += p.getName() + "," + p.getRelationship() + "," + p.getImageData();
+                saveText += "\n";
+            }
+
+            FileOutputStream fileOutput = null;
+            String outputFilename = "memoryTextFile.txt";
+            try {
+                fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
+                fileOutput.write(saveText.getBytes());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "File not found",
+                        Toast.LENGTH_LONG);
+                toast.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Error",
+                        Toast.LENGTH_LONG);
+                toast.show();
+            } finally {
+                if (fileOutput != null) {
+                    try {
+                        fileOutput.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
         }
-            if ( personArrayList.size()>1) {
-
+        if (personArrayList.size() > 1) {
             personArrayList.remove(index);
             leftButton(v);
-
         }
-
-            }
-
-
-
-
-
-
     }
 
+    //TEXT FILE IMAGE SAVE CODE
+    protected void onStop() {
+        String saveText = "";
+        for (Person p : personArrayList) {
+            saveText += p.getName() + "," + p.getRelationship() + "," + p.getImageData();
+            saveText += "\n";
+        }
 
-
-
-
+        FileOutputStream fileOutput = null;
+        String outputFilename = "memoryTextFile.txt";
+        try {
+            fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
+            fileOutput.write(saveText.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "File not found",
+                    Toast.LENGTH_LONG);
+            toast.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Error",
+                    Toast.LENGTH_LONG);
+            toast.show();
+        } finally {
+            if (fileOutput != null) {
+                try {
+                    fileOutput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        super.onStop();
+    }
+}

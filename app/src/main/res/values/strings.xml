@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">APPNAME</string>
+    <string name="app_name">Memory Aid</string>
 
     <string name="name">Type the Name:</string>
     <string name="nameHint">Name</string>
@@ -20,13 +20,4 @@
     <string name="delete">Delete</string>
     <string name="string_delete" />
     <string name="delete1">delete</string>
-    <string name="eat_breakfast">Eat Breakfast</string>
-    <string name="eat_dinner">Eat Dinner</string>
-    <string name="eat_lunch">Eat Lunch</string>
-    <string name="take_medication">Take Medication</string>
-    <string name="take_a_shower">Take a shower</string>
-    <string name="brush_your_teeth">Brush your teeth</string>
-    <string name="tasks_page">Tasks Page</string>
-
-
 </resources>
