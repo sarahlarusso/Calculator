@@ -24,7 +24,8 @@ import java.util.ArrayList;
 //From this page the user can go to the camera, or view people if there are people
 public class home extends AppCompatActivity {
 
-    ArrayList<Person> personArrayList;
+    private Controller controller;
+
     String fileName = "memoryTextFile.txt";
 
     @Override
@@ -32,31 +33,35 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        personArrayList = new ArrayList<Person>();
+        controller = (Controller) getApplicationContext();
+
+
+
+    //    personArrayList = new ArrayList<Person>();
 
 //      ORIGINAL CODE FOR READING A FILE
-        FileInputStream inputStream = null;
-        try {
-            inputStream = openFileInput(fileName);
-            InputStreamReader streamReader = new InputStreamReader(inputStream);
-
-            BufferedReader bufferedReader = new BufferedReader(streamReader);
-            String line = "";
-
-            while ((line = bufferedReader.readLine()) != null){
-                String[] fields = line.split(",");
-                personArrayList.add(new Person(fields[0],fields[1],fields[2]));
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Toast toast = Toast.makeText(getApplicationContext(),
-                "File not found",
-                Toast.LENGTH_LONG);
-        toast.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+//        FileInputStream inputStream = null;
+//        try {
+//            inputStream = openFileInput(fileName);
+//            InputStreamReader streamReader = new InputStreamReader(inputStream);
+//
+//            BufferedReader bufferedReader = new BufferedReader(streamReader);
+//            String line = "";
+//
+//            while ((line = bufferedReader.readLine()) != null){
+//                String[] fields = line.split(",");
+//                personArrayList.add(new Person(fields[0],fields[1],fields[2]));
+//            }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            Toast toast = Toast.makeText(getApplicationContext(),
+//                "File not found",
+//                Toast.LENGTH_LONG);
+//        toast.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
         Button btnCamera = findViewById(R.id.camerabutton);
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,14 +79,14 @@ public class home extends AppCompatActivity {
 
         Intent intent = new Intent(this, AddPersonActivity.class);
         intent.putExtra("Image Data String", imageData);
-        intent.putExtra("Person Array List", personArrayList);
+       // intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
     }
 
     public void viewPeople(View v) {
-        if (personArrayList.size() != 0){
+        if (controller.getPersonArrayList().size() != 0){
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("Person Array List", personArrayList);
+//            intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {

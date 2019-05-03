@@ -16,19 +16,18 @@ import java.util.ArrayList;
 public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
-    ArrayList<Person> personArrayList;
-
+    Controller controller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
 
+        controller = (Controller) getApplicationContext();
+
         //Takes in the Image Data and the ArrayList of People
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
-        personArrayList = bundle.getParcelableArrayList("Person Array List");
-
     }
 
    //Makes a new Person Object, adds it to the ArrayList, and goes to the View People Page
@@ -39,19 +38,20 @@ public class AddPersonActivity extends AppCompatActivity {
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
 
-        personArrayList.add(new Person(nameStr,relationStr,imgData));
+        controller.addPerson(new Person(nameStr,relationStr,imgData));
+
 
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("Person Array List", personArrayList);
+       // intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
 
     }
 
     public void cancel (View v) {
-        if (personArrayList.size() != 0){
+        if (controller.getPersonArrayList().size() != 0){
             //brings to view people
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("Person Array List", personArrayList);
+            //intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {
@@ -59,6 +59,5 @@ public class AddPersonActivity extends AppCompatActivity {
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
         }
-
     }
 }

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
-    ArrayList<Person> personArrayList;
+    Controller controller;
 
     private String imgData;
     private String name;
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        controller = (Controller)getApplicationContext();
+
         //Creates Image Displays
         imageView = (ImageView) findViewById(R.id.personImg);
         nameDisplay = findViewById(R.id.nameText);
@@ -60,19 +62,18 @@ public class MainActivity extends AppCompatActivity {
         //Gets the ArrayList<Person>
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        personArrayList = bundle.getParcelableArrayList("Person Array List");
 
-        index = personArrayList.size() - 1;
+        index = controller.getPersonArrayList().size() - 1;
         Toast toast = Toast.makeText(getApplicationContext(),
-                "Amount of People: " + personArrayList.size(),
+                "Amount of People: " + controller.getPersonArrayList().size(),
                 Toast.LENGTH_LONG);
 
         toast.show();
 
         //Displays the Information of the most recently added Person
-        imgData = personArrayList.get(index).getImageData();
-        name = personArrayList.get(index).getName();
-        relationship = personArrayList.get(index).getRelationship();
+        imgData = controller.getPersonArrayList().get(index).getImageData();
+        name = controller.getPersonArrayList().get(index).getName();
+        relationship = controller.getPersonArrayList().get(index).getRelationship();
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         imgData = data.getDataString();
 
         Intent intent = new Intent(this, AddPersonActivity.class);
-        intent.putExtra("Person Array List", personArrayList);
+//        intent.putExtra("Person Array List", personArrayList);
         intent.putExtra("Image Data String", imgData);
         startActivity(intent);
     }
@@ -106,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
     public void leftButton(View v) {
         index--;
         if (index == -1) {
-            index = personArrayList.size() - 1;
+            index = controller.getPersonArrayList().size() - 1;
         }
 
-        imgData = personArrayList.get(index).getImageData();
-        name = personArrayList.get(index).getName();
-        relationship = personArrayList.get(index).getRelationship();
+        imgData = controller.getPersonArrayList().get(index).getImageData();
+        name = controller.getPersonArrayList().get(index).getName();
+        relationship = controller.getPersonArrayList().get(index).getRelationship();
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -123,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
     //Displays the Person at the current index + 1
     public void rightButton(View v) {
         index++;
-        if (index == personArrayList.size()) {
+        if (index == controller.getPersonArrayList().size()) {
             index = 0;
         }
 
-        imgData = personArrayList.get(index).getImageData();
-        name = personArrayList.get(index).getName();
-        relationship = personArrayList.get(index).getRelationship();
+        imgData = controller.getPersonArrayList().get(index).getImageData();
+        name = controller.getPersonArrayList().get(index).getName();
+        relationship = controller.getPersonArrayList().get(index).getRelationship();
 
         nameDisplay.setText(name);
         relationDisplay.setText(relationship);
@@ -139,54 +140,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void deleteButton(View v) {
-        if (personArrayList.size() == 1) {
-            personArrayList.remove(index);
+        if (controller.getPersonArrayList().size() == 1) {
+            controller.deletePerson(index);
 
-            String saveText = "";
-            for (Person p : personArrayList) {
-                saveText += p.getName() + "," + p.getRelationship() + "," + p.getImageData();
-                saveText += "\n";
-            }
-
-            FileOutputStream fileOutput = null;
-            String outputFilename = "memoryTextFile.txt";
-            try {
-                fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
-                fileOutput.write(saveText.getBytes());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "File not found",
-                        Toast.LENGTH_LONG);
-                toast.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "Error",
-                        Toast.LENGTH_LONG);
-                toast.show();
-            } finally {
-                if (fileOutput != null) {
-                    try {
-                        fileOutput.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
         }
-        if (personArrayList.size() > 1) {
-            personArrayList.remove(index);
+        if (controller.getPersonArrayList().size() > 1) {
+            controller.deletePerson(index);
             leftButton(v);
         }
     }
 
     //TEXT FILE IMAGE SAVE CODE
     protected void onStop() {
+
         String saveText = "";
-        for (Person p : personArrayList) {
+        for (Person p : controller.getPersonArrayList()) {
             saveText += p.getName() + "," + p.getRelationship() + "," + p.getImageData();
             saveText += "\n";
         }
@@ -220,3 +190,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 }
+
+
+
+
