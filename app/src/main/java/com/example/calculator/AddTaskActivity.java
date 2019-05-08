@@ -43,21 +43,33 @@ public class AddTaskActivity extends AppCompatActivity {
                 if (checked) {
                     tasksArrayList.add("Eat Breakfast");
                 }
+                break;
             case R.id.checkBox2:
                 if (checked) {
                     tasksArrayList.add("Eat Lunch");
                 }
-
+                break;
             case R.id.checkBox3:
                 if (checked) {
                     tasksArrayList.add("Eat Dinner");
                 }
+                break;
             case R.id.checkBox4:
                 if (checked) {
                     tasksArrayList.add("Take Medication");
                 }
-
                 break;
+            case R.id.checkBox5:
+                if (checked) {
+                    tasksArrayList.add("Take a Shower");
+                }
+                break;
+            case R.id.checkBox6:
+                if (checked) {
+                    tasksArrayList.add("Brush your Teeth");
+                }
+                break;
+
 
         }
 
