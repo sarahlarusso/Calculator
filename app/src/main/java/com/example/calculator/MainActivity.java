@@ -242,7 +242,3 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         super.onStop();
     }
 }
-
-
-
-
