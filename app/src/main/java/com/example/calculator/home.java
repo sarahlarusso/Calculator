@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class home extends AppCompatActivity {
 
     ArrayList<Person> personArrayList;
+    ArrayList<String> tasksArrayList;
     String fileName = "memoryText";
 
     //creates/opens the ArrayList<Person> (from the text file)
@@ -30,6 +31,7 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         personArrayList = new ArrayList<>();
+        tasksArrayList = new ArrayList<>();
 
         FileInputStream inputStream;
         try {
@@ -96,12 +98,24 @@ public class home extends AppCompatActivity {
     //Goes to Add Task Page
     public void gotoTasks(View v){
                 Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
+                intent.putExtra("Tasks Array List", tasksArrayList);
                 v.getContext().startActivity(intent);
     }
 
     //Goes to View Task Page
     public void viewTasks(View v){
-                Intent intent = new Intent(v.getContext(), ViewTaskActivity.class);
-                v.getContext().startActivity(intent);
+        if (tasksArrayList.size() != 0){
+            //Brings to View Tasks
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("Tasks Array List", tasksArrayList);
+            startActivity(intent);
+        }
+        else {
+            //Says that there are no tasks yet
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "You Have No Tasks Yet",
+                    Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }

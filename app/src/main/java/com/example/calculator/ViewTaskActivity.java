@@ -10,12 +10,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ViewTaskActivity extends AppCompatActivity {
+
+    ArrayList<String> tasksArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_tasks);
 
         Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        tasksArrayList = bundle.getStringArrayList("Tasks Array List");
     }
 
     public void goHome(View v) {
@@ -25,6 +30,7 @@ public class ViewTaskActivity extends AppCompatActivity {
 
     public void addTask(View v){
                 Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
+                intent.putExtra("Tasks Array List", tasksArrayList);
                 v.getContext().startActivity(intent);
     }
 }
