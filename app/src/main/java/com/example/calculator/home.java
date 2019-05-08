@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -95,12 +94,11 @@ public class home extends AppCompatActivity {
 
     }
     public void gotoTasks(View v){
-
         Button btntasks = findViewById(R.id.tasksbutton);
         btntasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
                 intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }
@@ -114,7 +112,7 @@ public class home extends AppCompatActivity {
         btntasks2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), listedtasks.class);
+                Intent intent = new Intent(v.getContext(), ViewTaskActivity.class);
                 intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }

@@ -104,7 +104,7 @@
         android:onClick="gotoTasks"
         android:padding="7dp"
         android:shape="rectangle"
-        android:text="@string/add_task"
+        android:text="@string/home3"
         android:textColor="#FFFFE0"
         android:textSize="38sp"
         android:typeface="serif"

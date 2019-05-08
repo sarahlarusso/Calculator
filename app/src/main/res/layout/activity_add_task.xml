@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_taskview">
+    tools:context=".AddTaskActivity">
 
     <LinearLayout
         android:layout_width="585dp"
@@ -36,7 +36,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/brush_your_teeth" />
+            android:text="@string/task1" />
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -44,7 +44,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/take_a_shower" />
+            android:text="@string/task2" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -52,7 +52,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/eat_breakfast" />
+            android:text="@string/task3" />
 
         <CheckBox
             android:id="@+id/checkBox4"
@@ -60,7 +60,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/eat_lunch" />
+            android:text="@string/task4" />
 
         <CheckBox
             android:id="@+id/checkBox5"
@@ -68,7 +68,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/eat_dinner" />
+            android:text="@string/task5" />
 
         <CheckBox
             android:id="@+id/checkBox6"
@@ -76,7 +76,7 @@
             android:layout_height="66dp"
             android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/take_medication" />
+            android:text="@string/task6" />
 
         <Button
             android:id="@+id/tasksbutton"

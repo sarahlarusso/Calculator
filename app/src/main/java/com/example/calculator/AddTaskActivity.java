@@ -3,20 +3,15 @@ package com.example.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.net.wifi.hotspot2.pps.HomeSp;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class activity_taskview extends AppCompatActivity {
+public class AddTaskActivity extends AppCompatActivity {
     ArrayList<Person> personArrayList;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6;
 
@@ -24,7 +19,7 @@ public class activity_taskview extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taskview);
+        setContentView(R.layout.activity_add_task);
         Button tasks=(Button)findViewById(R.id.tasksbutton);
 
 
@@ -39,7 +34,7 @@ public class activity_taskview extends AppCompatActivity {
         btntasks3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), listedtasks.class);
+                Intent intent = new Intent(v.getContext(), ViewTaskActivity.class);
                 intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }

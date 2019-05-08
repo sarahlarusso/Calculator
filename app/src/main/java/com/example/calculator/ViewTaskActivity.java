@@ -9,19 +9,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class listedtasks extends AppCompatActivity {
+public class ViewTaskActivity extends AppCompatActivity {
     ArrayList<Person> personArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listedtasks);
+        setContentView(R.layout.activity_view_tasks);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         personArrayList = bundle.getParcelableArrayList("Person Array List");
     }
 
-    public void viewPeople2(View v) {
+    public void viewPeople(View v) {
         if (personArrayList.size() != 0){
             //Brings to View People
             Intent intent = new Intent(this, MainActivity.class);
@@ -38,13 +38,13 @@ public class listedtasks extends AppCompatActivity {
 
     }
 
-    public void addTasks2(View v){
+    public void addTask(View v){
         Button addtasks3 = findViewById(R.id.addtaskbutton);
         addtasks3.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
                 intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }

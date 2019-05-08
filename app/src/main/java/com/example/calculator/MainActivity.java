@@ -162,19 +162,14 @@ public class MainActivity extends AppCompatActivity {
         addT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), activity_taskview.class);
+                Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
                 intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
             }
         });
+    }
 
-
-
-
-
-
-
-    }}
+}
 
 
 

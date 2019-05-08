@@ -4,15 +4,15 @@
     <string name="app_name">My Memory</string>
 
     <!--Home Screen-->
-    <string name="home1">Add a person</string>
+    <string name="home1">Add a Person</string>
     <string name="home2">View People</string>
-    <string name="add_task">Add Task</string>
+    <string name="home3">Add a Task</string>
     <string name="home4">View Tasks</string>
     <string name="welcome">Welcome</string>
     <string name="star">✧</string>
     <string name="delete">Delete</string>
 
-    <string name="camerabutton">open camera</string>
+    <string name="camerabutton">Open Camera</string>
 
     <!--Add Person Screen-->
     <string name="name">Type the Name:</string>
@@ -21,14 +21,13 @@
     <string name="relationHint">Relationship</string>
 
     <!--Add Task Screen-->
-    <string name="eat_breakfast">Eat Breakfast</string>
-    <string name="eat_dinner">Eat Dinner</string>
-    <string name="eat_lunch">Eat Lunch</string>
-    <string name="take_medication">Take Medication</string>
-    <string name="take_a_shower">Take a shower</string>
-    <string name="brush_your_teeth">Brush your teeth</string>
-    <string name="tasks_page">Tasks Page</string>
-    <string name="task_string_delete1">Task @string/delete1</string>
+    <string name="task1">Eat Breakfast</string>
+    <string name="task2">Eat Lunch</string>
+    <string name="task3">Eat Dinner</string>
+    <string name="task4">Take Medication</string>
+    <string name="task5">Take a Shower</string>
+    <string name="task6">Brush your teeth</string>
+    <string name="tasks_page">Add Tasks</string>
 
     <!--View Task Screen-->
     <string name="your_tasks">Your Tasks</string>
