@@ -86,6 +86,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+
+
+        Button addT = findViewById(R.id.addtasks8);
+        addT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
+                intent.putExtra("Person Array List", personArrayList);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     //Opens Camera (Continued)
@@ -143,32 +154,18 @@ public class MainActivity extends AppCompatActivity {
 
     //Deletes the person from the arraylist
     public void deleteButton (View v) {
-        if(personArrayList.size()==1) {
+        if (personArrayList.size() == 1) {
             personArrayList.remove(index);
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
         }
-            if ( personArrayList.size()>1) {
+        if (personArrayList.size() > 1) {
 
             personArrayList.remove(index);
             leftButton(v);
 
         }
-
-            }
-    public void gotoTasks(View v){
-
-        Button addT = findViewById(R.id.addtasks8);
-        addT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
-                intent.putExtra("Person Array List", personArrayList);
-                v.getContext().startActivity(intent);
-            }
-        });
     }
-
 }
 
 
