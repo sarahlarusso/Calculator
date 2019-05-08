@@ -7,20 +7,18 @@
     tools:context=".AddTaskActivity">
 
     <LinearLayout
+        android:id="@+id/layoutlinear"
         android:layout_width="585dp"
         android:layout_height="946dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:id="@+id/layoutlinear">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title_tasks"
@@ -34,49 +32,49 @@
             android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task1" />
+            android:text="@string/task1"
+            android:textSize="30sp" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task2" />
+            android:text="@string/task2"
+            android:textSize="30sp" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task3" />
+            android:text="@string/task3"
+            android:textSize="30sp" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task4" />
+            android:text="@string/task4"
+            android:textSize="30sp" />
 
         <CheckBox
             android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task5" />
+            android:text="@string/task5"
+            android:textSize="30sp" />
 
         <CheckBox
             android:id="@+id/checkBox6"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:textSize="30sp"
             android:onClick="onCheckboxClicked"
-            android:text="@string/task6" />
+            android:text="@string/task6"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/tasksbutton"
