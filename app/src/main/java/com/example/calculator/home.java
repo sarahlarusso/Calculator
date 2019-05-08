@@ -19,10 +19,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static android.media.MediaRecorder.VideoSource.CAMERA;
+
 //This class is the home page that opens when the user opens the app
 //The page initializes/reads the ArrayList of People from the test file
 //From this page the user can go to the camera, or view people if there are people
-public class home extends AppCompatActivity {
+public class home extends AppCompatActivity implements CameraDialog.CameraDialogListener {
 
     private Controller controller;
 
@@ -35,42 +37,34 @@ public class home extends AppCompatActivity {
 
         controller = (Controller) getApplicationContext();
 
-
-
-    //    personArrayList = new ArrayList<Person>();
-
-//      ORIGINAL CODE FOR READING A FILE
-//        FileInputStream inputStream = null;
-//        try {
-//            inputStream = openFileInput(fileName);
-//            InputStreamReader streamReader = new InputStreamReader(inputStream);
-//
-//            BufferedReader bufferedReader = new BufferedReader(streamReader);
-//            String line = "";
-//
-//            while ((line = bufferedReader.readLine()) != null){
-//                String[] fields = line.split(",");
-//                personArrayList.add(new Person(fields[0],fields[1],fields[2]));
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                "File not found",
-//                Toast.LENGTH_LONG);
-//        toast.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
         Button btnCamera = findViewById(R.id.camerabutton);
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
+                openCameraDialog();
             }
         });
     }
+
+    public void openCameraDialog(){
+        CameraDialog dialog = new CameraDialog();
+        dialog.show(getSupportFragmentManager(),"Dialog");
+    }
+
+
+    @Override
+    public void onCameraClicked(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
+    }
+
+    @Override
+    public void onGalleryClicked(){
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(pickPhoto , 1);
+    }
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -79,14 +73,12 @@ public class home extends AppCompatActivity {
 
         Intent intent = new Intent(this, AddPersonActivity.class);
         intent.putExtra("Image Data String", imageData);
-       // intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
     }
 
     public void viewPeople(View v) {
         if (controller.getPersonArrayList().size() != 0){
             Intent intent = new Intent(this, MainActivity.class);
-//            intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {

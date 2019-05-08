@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,12 +22,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //This activity holds methods for the Main Activity (View People) Screen.
 //It includes displaying the most recently added person, and the
 //person directly before and after that index.
 //It can also open the camera from this screen, to add another person
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CameraDialog.CameraDialogListener{
 
     private final String TAG = "MainActivity";
     Controller controller;
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageButton rightButton;
     ImageButton leftButton;
+
+    CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +91,45 @@ public class MainActivity extends AppCompatActivity {
         addPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
+                openCameraDialog();
             }
         });
+
+        startTimer();
+    }
+
+    public void startTimer(){
+        timer = new CountDownTimer(10000, 1000) {
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                View v = new View(getApplicationContext());
+                rightButton(v);
+            }
+        }.start();
+    }
+
+    public void stopTimer(){
+        timer.cancel();
+    }
+
+    public void openCameraDialog(){
+        CameraDialog dialog = new CameraDialog();
+        dialog.show(getSupportFragmentManager(),"Dialog");
+    }
+
+    @Override
+    public void onCameraClicked(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 0);
+    }
+
+    @Override
+    public void onGalleryClicked(){
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(pickPhoto , 1);
     }
 
     //Opens Camera (Continued)
@@ -105,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Displays the Person at the current index - 1
     public void leftButton(View v) {
+
+        stopTimer();
+
         index--;
         if (index == -1) {
             index = controller.getPersonArrayList().size() - 1;
@@ -119,10 +162,16 @@ public class MainActivity extends AppCompatActivity {
 
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
+
+        startTimer();
     }
+
 
     //Displays the Person at the current index + 1
     public void rightButton(View v) {
+
+        stopTimer();
+
         index++;
         if (index == controller.getPersonArrayList().size()) {
             index = 0;
@@ -137,11 +186,14 @@ public class MainActivity extends AppCompatActivity {
 
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
+
+        startTimer();
     }
 
     public void deleteButton(View v) {
         if (controller.getPersonArrayList().size() == 1) {
             controller.deletePerson(index);
+            stopTimer();
 
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
