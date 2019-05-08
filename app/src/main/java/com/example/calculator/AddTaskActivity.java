@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 
 public class AddTaskActivity extends AppCompatActivity {
-   // ArrayList<Person> personArrayList;
     private CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6;
 
 
