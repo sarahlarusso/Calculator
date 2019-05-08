@@ -17,8 +17,6 @@ public class ViewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_tasks);
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        personArrayList = bundle.getParcelableArrayList("Person Array List");
     }
 
     public void viewPeople(View v) {

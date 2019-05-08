@@ -29,15 +29,15 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        personArrayList = new ArrayList<Person>();
+        personArrayList = new ArrayList<>();
 
-        FileInputStream inputStream = null;
+        FileInputStream inputStream;
         try {
             inputStream = openFileInput(fileName);
             InputStreamReader streamReader = new InputStreamReader(inputStream);
 
             BufferedReader bufferedReader = new BufferedReader(streamReader);
-            String line = "";
+            String line;
 
             while ((line = bufferedReader.readLine()) != null){
                 String[] fields = line.split(",");
@@ -53,7 +53,7 @@ public class home extends AppCompatActivity {
         }
 
         //Begins Opening Camera
-        Button btnCamera = findViewById(R.id.camerabutton);
+        Button btnCamera = findViewById(R.id.home1);
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -93,30 +93,15 @@ public class home extends AppCompatActivity {
         }
 
     }
+    //Goes to Add Task Page
     public void gotoTasks(View v){
-        Button btntasks = findViewById(R.id.tasksbutton);
-        btntasks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AddTaskActivity.class);
-                intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
-            }
-        });
-
     }
 
+    //Goes to View Task Page
     public void viewTasks(View v){
-
-        Button btntasks2 = findViewById(R.id.tasksbutton2);
-        btntasks2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ViewTaskActivity.class);
-                intent.putExtra("Person Array List", personArrayList);
                 v.getContext().startActivity(intent);
-            }
-        });
-
     }
 }

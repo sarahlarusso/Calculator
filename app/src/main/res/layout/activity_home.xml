@@ -7,38 +7,18 @@
     android:background="#2E4159"
     tools:context=".home">
 
-    <Button
-        android:id="@+id/button1"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="3dp"
-        android:background="@drawable/buttonround"
-        android:onClick="viewPeople"
-        android:padding="7dp"
-        android:text="@string/home2"
-        android:textColor="#FFFFE0"
-        android:textSize="38sp"
-        android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
-
 
     <TextView
         android:id="@+id/textHome"
         android:layout_width="wrap_content"
-        android:layout_height="500dp"
+        android:layout_height="200dp"
 
         android:layout_marginLeft="231dp"
 
         android:layout_marginRight="231dp"
         android:layout_marginBottom="200dp"
         android:lineSpacingExtra="35sp"
+        android:text="@string/star"
         android:textColor="@android:color/white"
         android:textSize="130sp"
         android:textStyle="bold"
@@ -47,40 +27,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/star" />
-
-    <Button
-        android:id="@+id/camerabutton"
-
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:shape="rectangle"
-        android:layout_marginBottom="8dp"
-        android:lineSpacingExtra="12sp"
-        android:text="@string/home1"
-        android:padding="7dp"
-        android:textColor="#FFFFE0"
-        android:textSize="38sp"
-        android:background="@drawable/buttonround"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:typeface="serif"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:layout_width="600dp"
-        android:layout_height="300dp"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
 
-        android:layout_marginStart="370dp"
-
-        android:layout_marginLeft="30dp"
-        android:layout_marginEnd="231dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="0dp"
+        android:layout_height="100dp"
         android:lineSpacingExtra="40sp"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
@@ -89,15 +42,58 @@
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
-        android:id="@+id/tasksbutton"
+        android:id="@+id/home1"
+
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="490dp"
+        android:background="@drawable/buttonround"
+        android:lineSpacingExtra="0sp"
+        android:padding="7dp"
+        android:shape="rectangle"
+        android:text="@string/home1"
+        android:textColor="#FFFFE0"
+        android:textSize="38sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <Button
+        android:id="@+id/home2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/buttonround"
+        android:onClick="viewPeople"
+        android:padding="7dp"
+        android:text="@string/home2"
+        android:textColor="#FFFFE0"
+        android:textSize="38sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <Button
+        android:id="@+id/home3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/buttonround"
         android:lineSpacingExtra="12sp"
@@ -112,14 +108,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.62" />
 
     <Button
-        android:id="@+id/tasksbutton2"
+        android:id="@+id/home4"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="660dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/buttonround"
         android:lineSpacingExtra="12sp"
@@ -135,7 +131,7 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.6" />
 
 
 </android.support.constraint.ConstraintLayout>
