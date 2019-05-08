@@ -44,24 +44,18 @@ public class AddTaskActivity extends AppCompatActivity {
                     tasksArrayList.add("Eat Breakfast");
                 }
             case R.id.checkBox2:
-                if (checked){
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "2 task",
-                            Toast.LENGTH_LONG);
-                toast.show();}
+                if (checked) {
+                    tasksArrayList.add("Eat Lunch");
+                }
 
             case R.id.checkBox3:
-                if (checked){
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "3 task",
-                            Toast.LENGTH_LONG);
-                    toast.show();}
+                if (checked) {
+                    tasksArrayList.add("Eat Dinner");
+                }
             case R.id.checkBox4:
-                if (checked){
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "4 task",
-                            Toast.LENGTH_LONG);
-                    toast.show();}
+                if (checked) {
+                    tasksArrayList.add("Take Medication");
+                }
 
                 break;
 
