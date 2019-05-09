@@ -17,6 +17,7 @@ public class AddPersonActivity extends AppCompatActivity {
 
     private String imgData;
     Controller controller;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class AddPersonActivity extends AppCompatActivity {
 
         controller = (Controller) getApplicationContext();
 
-        //Takes in the Image Data and the ArrayList of People
+        //Takes in the Image Data
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         imgData = bundle.getString("Image Data String");
@@ -40,18 +41,14 @@ public class AddPersonActivity extends AppCompatActivity {
 
         controller.addPerson(new Person(nameStr,relationStr,imgData));
 
-
         Intent intent = new Intent(this, MainActivity.class);
-       // intent.putExtra("Person Array List", personArrayList);
         startActivity(intent);
-
     }
 
     public void cancel (View v) {
         if (controller.getPersonArrayList().size() != 0){
             //brings to view people
             Intent intent = new Intent(this, MainActivity.class);
-            //intent.putExtra("Person Array List", personArrayList);
             startActivity(intent);
         }
         else {

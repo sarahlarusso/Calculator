@@ -17,10 +17,9 @@ public class Controller extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
+
         personArrayList = new ArrayList<Person>();
 
-
-//      ORIGINAL CODE FOR READING A FILE
         FileInputStream inputStream = null;
         try {
             inputStream = openFileInput(fileName);
@@ -44,18 +43,16 @@ public class Controller extends Application {
         }
     }
 
-    public ArrayList<Person> getPersonArrayList(){
+    public ArrayList<Person> getPersonArrayList() {
         return personArrayList;
     }
 
-    public void deletePerson(int index){
+    public void deletePerson(int index) {
         personArrayList.remove(index);
     }
 
-    public void addPerson(Person person){
+    public void addPerson(Person person) {
         personArrayList.add(person);
     }
 
 }
-
-

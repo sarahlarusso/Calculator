@@ -30,7 +30,6 @@ public class CameraDialog extends AppCompatDialogFragment {
                     }
                 });
         return builder.create();
-
     }
 
     public interface CameraDialogListener{
@@ -47,6 +46,5 @@ public class CameraDialog extends AppCompatDialogFragment {
         } catch (ClassCastException e){
             throw new ClassCastException(context.toString() + "Must implement listener");
         }
-
     }
 }

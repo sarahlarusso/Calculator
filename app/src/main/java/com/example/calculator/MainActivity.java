@@ -29,7 +29,7 @@ import java.util.TimerTask;
 //It includes displaying the most recently added person, and the
 //person directly before and after that index.
 //It can also open the camera from this screen, to add another person
-public class MainActivity extends AppCompatActivity implements CameraDialog.CameraDialogListener{
+public class MainActivity extends AppCompatActivity implements CameraDialog.CameraDialogListener {
 
     private final String TAG = "MainActivity";
     Controller controller;
@@ -66,13 +66,11 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
 
         //Gets the ArrayList<Person>
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
 
         index = controller.getPersonArrayList().size() - 1;
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Amount of People: " + controller.getPersonArrayList().size(),
                 Toast.LENGTH_LONG);
-
         toast.show();
 
         //Displays the Information of the most recently added Person
@@ -100,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
 
     public void startTimer(){
         timer = new CountDownTimer(10000, 1000) {
+
             public void onTick(long millisUntilFinished) {
             }
 
@@ -138,14 +137,12 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         imgData = data.getDataString();
 
         Intent intent = new Intent(this, AddPersonActivity.class);
-//        intent.putExtra("Person Array List", personArrayList);
         intent.putExtra("Image Data String", imgData);
         startActivity(intent);
     }
 
     //Displays the Person at the current index - 1
     public void leftButton(View v) {
-
         stopTimer();
 
         index--;
@@ -166,10 +163,8 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         startTimer();
     }
 
-
     //Displays the Person at the current index + 1
     public void rightButton(View v) {
-
         stopTimer();
 
         index++;
@@ -206,7 +201,6 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
 
     //TEXT FILE IMAGE SAVE CODE
     protected void onStop() {
-
         String saveText = "";
         for (Person p : controller.getPersonArrayList()) {
             saveText += p.getName() + "," + p.getRelationship() + "," + p.getImageData();
@@ -215,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
 
         FileOutputStream fileOutput = null;
         String outputFilename = "memoryTextFile.txt";
+
         try {
             fileOutput = openFileOutput(outputFilename, MODE_PRIVATE);
             fileOutput.write(saveText.getBytes());

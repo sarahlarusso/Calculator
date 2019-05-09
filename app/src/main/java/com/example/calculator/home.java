@@ -28,8 +28,6 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
 
     private Controller controller;
 
-    String fileName = "memoryTextFile.txt";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +49,10 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
         dialog.show(getSupportFragmentManager(),"Dialog");
     }
 
-
     @Override
     public void onCameraClicked(){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 0);
+        startActivityForResult(intent, 0);
     }
 
     @Override
@@ -64,7 +61,6 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(pickPhoto , 1);
     }
-
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
