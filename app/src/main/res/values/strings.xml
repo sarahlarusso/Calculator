@@ -1,9 +1,8 @@
 <!--Here is a page with the referenced strings-->
-
 <resources>
 
     <!--Home-->
-    <string name="app_name">Memory Aid</string>
+    <string name="app_name">My Memories</string>
     <string name="home1">Add a person</string>
     <string name="home2">View People</string>
     <string name="star">✧</string>

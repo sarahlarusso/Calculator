@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#FFF8F9</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="home">#47D1B1</color>
 
+<!--Here is a page with the referenced colors-->
+<resources>
+
+    <color name="darkblue">#2E4159</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#A9C0FD</color>
+    <color name="yellow">#FFFFE0</color>
+
+
+    <!--#A9C0FD-->
 </resources>
