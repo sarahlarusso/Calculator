@@ -83,7 +83,7 @@
         app:layout_constraintStart_toEndOf="@+id/personImg"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="100dp"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/right" />
 
     <ImageButton
         android:id="@+id/leftButton"
@@ -99,13 +99,13 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/left" />
 
     <Button
         android:id="@+id/delete1"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text="@string/delete1"
+        android:text="@string/delete"
         tools:layout_editor_absoluteX="481dp"
         tools:layout_editor_absoluteY="885dp"
         android:onClick="deleteButton"

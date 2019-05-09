@@ -86,6 +86,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="160dp"
+
         android:onClick="addPerson"
         android:text="@string/done"
         android:textSize="24sp"
