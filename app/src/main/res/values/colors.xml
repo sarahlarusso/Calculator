@@ -3,17 +3,12 @@
 <!--Here is a page with the referenced colors-->
 <resources>
 
+    <color name="colorPrimary">#DAD7D7</color>
+    <color name="colorPrimaryDark">#79B0F3</color>
+    <color name="colorAccent">#2E4159</color>
     <color name="darkblue">#2E4159</color>
     <color name="white">#FFFFFF</color>
     <color name="blue">#A9C0FD</color>
     <color name="yellow">#FFFFE0</color>
-    <color name="colorPrimary">#DAD7D7</color>
-    <color name="colorPrimaryDark">#79B0F3</color>
-    <color name="colorAccent">#2E4159</color>
 
-
-
-
-
-    <!--#A9C0FD-->
 </resources>
