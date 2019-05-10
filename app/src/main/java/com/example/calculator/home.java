@@ -21,9 +21,10 @@ import java.util.ArrayList;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 
-//This class is the home page that opens when the user opens the app
-//The page initializes/reads the ArrayList of People from the test file
-//From this page the user can go to the camera, or view people if there are people
+/*This page is the home page that opens when the user opens the app
+From this page the user can add a person via the camera or the photo gallery,
+Or choose to view the existing people in the apps storage if there are any
+ */
 public class home extends AppCompatActivity implements CameraDialog.CameraDialogListener {
 
     private Controller controller;
@@ -35,6 +36,7 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
 
         controller = (Controller) getApplicationContext();
 
+        //Opens the dialog box to prompt the user for how they want to select an image
         Button btnCamera = findViewById(R.id.camerabutton);
         btnCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -62,6 +64,7 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
         startActivityForResult(pickPhoto , 1);
     }
 
+    //Converts the image data to a String which can be stored in the app
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String imageData = data.getDataString();
@@ -72,6 +75,7 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
         startActivity(intent);
     }
 
+    //Can only view people if there are people
     public void viewPeople(View v) {
         if (controller.getPersonArrayList().size() != 0){
             Intent intent = new Intent(this, MainActivity.class);

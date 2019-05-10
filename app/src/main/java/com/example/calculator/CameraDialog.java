@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.widget.Toast;
 
 public class CameraDialog extends AppCompatDialogFragment {
 
@@ -26,6 +27,11 @@ public class CameraDialog extends AppCompatDialogFragment {
                 .setPositiveButton("From Gallery", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Toast toast = Toast.makeText(getContext(),
+                                "Make sure to choose 'Gallery' and not 'Photos'",
+                                Toast.LENGTH_LONG);
+                        toast.show();
+
                         listener.onGalleryClicked();
                     }
                 });
