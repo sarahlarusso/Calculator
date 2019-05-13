@@ -39,10 +39,24 @@ public class AddPersonActivity extends AppCompatActivity {
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
 
-        controller.addPerson(new Person(nameStr,relationStr,imgData));
+        if (duplicate(imgData)){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        else {
+            controller.addPerson(new Person(nameStr,relationStr,imgData));
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    public boolean duplicate (String data) {
+        for (Person p: controller.getPersonArrayList()) {
+            if (p.getImageData().equals(data)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void cancel (View v) {
