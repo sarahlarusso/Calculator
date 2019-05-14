@@ -45,7 +45,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttonround"
+        android:background="@drawable/buttonlight"
 
         android:onClick="viewPeople"
         android:padding="7dp"
@@ -65,7 +65,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttonround"
+        android:background="@drawable/buttonlight"
 
         android:padding="7dp"
         android:text="@string/home1"
