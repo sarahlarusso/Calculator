@@ -4,11 +4,10 @@
 <resources>
 
     <color name="colorPrimary">#E2E4E4</color>
-    <color name="colorPrimaryDark">#D5E0FF</color>
+    <color name="colorPrimaryDark">#AFD4F7</color>
     <color name="colorAccent">#2E4159</color>
     <color name="darkblue">#2E4159</color>
     <color name="white">#FFFFFF</color>
     <color name="blue">#D5E0FF</color>
     <color name="yellow">#FFFFE0</color>
-    <color name="midblue">#AFD4F7</color>
 </resources>

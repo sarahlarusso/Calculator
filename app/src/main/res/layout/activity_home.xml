@@ -50,7 +50,7 @@
         android:onClick="viewPeople"
         android:padding="7dp"
         android:text="@string/home2"
-        android:textColor="@color/yellow"
+        android:textColor="@color/white"
         android:textSize="38sp"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
 
         android:padding="7dp"
         android:text="@string/home1"
-        android:textColor="@color/yellow"
+        android:textColor="@color/white"
         android:textSize="38sp"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"

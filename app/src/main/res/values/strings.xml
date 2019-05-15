@@ -3,7 +3,7 @@
 
     <!--Home-->
     <string name="app_name">My Memories</string>
-    <string name="home1">Add a person</string>
+    <string name="home1">Add Person</string>
     <string name="home2">View People</string>
     <string name="star">✧</string>
 
@@ -19,6 +19,7 @@
     <string name="left">Goes to the previous person</string>
     <string name="right">Goes to the next person</string>
     <string name="delete">Delete</string>
-    <string name="camerabutton">opens camera</string>
+    <string name="camerabutton">Opens camera</string>
+    <string name="people">Your People</string>
 
 </resources>
