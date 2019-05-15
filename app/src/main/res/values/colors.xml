@@ -3,7 +3,7 @@
 <!--Here is a page with the referenced colors-->
 <resources>
 
-    <color name="colorPrimary">#E2E4E4</color>
+    <color name="colorPrimary">#D5D7D6</color>
     <color name="colorPrimaryDark">#AFD4F7</color>
     <color name="colorAccent">#2E4159</color>
     <color name="darkblue">#2E4159</color>
