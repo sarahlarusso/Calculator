@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 
-/*This page is the home page that opens when the user opens the app
+/*This page is the home page that opens when the user opens the app.
 From this page the user can add a person via the camera or the photo gallery,
 Or choose to view the existing people in the apps storage if there are any
  */
@@ -51,12 +51,14 @@ public class home extends AppCompatActivity implements CameraDialog.CameraDialog
         dialog.show(getSupportFragmentManager(),"Dialog");
     }
 
+    //Opens the camera
     @Override
     public void onCameraClicked(){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 0);
     }
 
+    //Opens the gallery
     @Override
     public void onGalleryClicked(){
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,

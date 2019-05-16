@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+//The controller class manages the array list data and reads from the text file
+//OnCreate() is called only once to make sure the text file is read only one time
+//Manages a single instance of the array list that is accessed by other classes
 public class Controller extends Application {
     private ArrayList<Person> personArrayList;
     String fileName = "memoryTextFile.txt";
@@ -18,15 +21,15 @@ public class Controller extends Application {
     public void onCreate(){
         super.onCreate();
 
-        personArrayList = new ArrayList<Person>();
+        personArrayList = new ArrayList<>();
 
-        FileInputStream inputStream = null;
+        FileInputStream inputStream;
         try {
             inputStream = openFileInput(fileName);
             InputStreamReader streamReader = new InputStreamReader(inputStream);
 
             BufferedReader bufferedReader = new BufferedReader(streamReader);
-            String line = "";
+            String line;
 
             while ((line = bufferedReader.readLine()) != null){
                 String[] fields = line.split(",");

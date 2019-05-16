@@ -25,10 +25,18 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-//This activity holds methods for the Main Activity (View People) Screen.
-//It includes displaying the most recently added person, and the
-//person directly before and after that index.
-//It can also open the camera from this screen, to add another person
+//This activity creates the View People screen
+//Displays the image of the person, their name, and their relationship to the user
+/*
+Credits and Help:
+Mrs. Taricco - Process, software, planning and execution, text file, basic use of Android Studio
+https://www.youtube.com/watch?v=ondCeqlAwEI - Camera use
+https://www.youtube.com/watch?v=r_87U6oHLFc - Dialog box use
+https://www.youtube.com/watch?v=EcfUkjlL9RI&t=478s - Text file use
+https://www.youtube.com/watch?v=MDuGwI6P-X8&t=675s - Timer
+StackOverflow - text file, gallery access, timer
+ */
+
 public class MainActivity extends AppCompatActivity implements CameraDialog.CameraDialogListener {
 
     private final String TAG = "MainActivity";
@@ -56,17 +64,16 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
 
         controller = (Controller)getApplicationContext();
 
-        //Creates Image Displays
-        imageView = (ImageView) findViewById(R.id.personImg);
+        //Creates UI Displays
+        imageView = findViewById(R.id.personImg);
         nameDisplay = findViewById(R.id.nameText);
         relationDisplay = findViewById(R.id.relationText);
         rightButton = findViewById(R.id.rightButton);
         leftButton = findViewById(R.id.leftButton);
 
-
-        //Gets the ArrayList<Person>
         Intent intent = getIntent();
 
+        //Toasts the number of contacts the user currently has
         index = controller.getPersonArrayList().size() - 1;
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Amount of People: " + controller.getPersonArrayList().size(),
@@ -84,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         imageUri = Uri.parse(imgData);
         imageView.setImageURI(imageUri);
 
-        //Opens Camera
+        //Initiates Image sequence for choosing a picture
         ImageButton addPerson = findViewById(R.id.AddPersonButton);
         addPerson.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         startTimer();
     }
 
+    //Starts the 10 second timer
     public void startTimer(){
         timer = new CountDownTimer(10000, 1000) {
 
@@ -131,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         startActivityForResult(pickPhoto , 1);
     }
 
-    //Opens Camera (Continued)
+    //Saves image data
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         imgData = data.getDataString();
@@ -185,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         startTimer();
     }
 
+    //Delete currently viewed person
     public void deleteButton(View v) {
         if (controller.getPersonArrayList().size() == 1) {
             controller.deletePerson(index);
@@ -199,7 +208,8 @@ public class MainActivity extends AppCompatActivity implements CameraDialog.Came
         }
     }
 
-    //TEXT FILE IMAGE SAVE CODE
+    //Converts Array List to a single string and writes it to a text file
+    //If the text file does not exists, method creates the text file
     protected void onStop() {
         String saveText = "";
         for (Person p : controller.getPersonArrayList()) {

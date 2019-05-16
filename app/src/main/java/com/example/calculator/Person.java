@@ -3,10 +3,11 @@ package com.example.calculator;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+//The Person class holds the data for each individual contact the user adds/has
 public class Person implements Parcelable {
-    String name;
-    String relationship;
-    String imageData;
+    private String name;
+    private String relationship;
+    private String imageData;
 
     public Person (String name, String relationship, String imageData){
         this.name = name;
@@ -14,6 +15,7 @@ public class Person implements Parcelable {
         this.imageData = imageData;
     }
 
+    //Parcelable implementation allows objects of type Person to be sent between classes
     protected Person(Parcel in) {
         name = in.readString();
         relationship = in.readString();

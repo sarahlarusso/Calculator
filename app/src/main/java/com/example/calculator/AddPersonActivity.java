@@ -31,7 +31,8 @@ public class AddPersonActivity extends AppCompatActivity {
         imgData = bundle.getString("Image Data String");
     }
 
-   //Makes a new Person Object, adds it to the ArrayList, and goes to the View People Page
+   //Makes a new Person Object, adds it to the ArrayList if it does not already exists,
+   //and goes to the View People Page
     public void addPerson (View v) {
         EditText name = findViewById(R.id.apNametxt);
         EditText relation = findViewById(R.id.apRelationtxt);
@@ -39,7 +40,7 @@ public class AddPersonActivity extends AppCompatActivity {
         String nameStr = name.getText().toString();
         String relationStr = relation.getText().toString();
 
-        if (duplicate(imgData)){
+        if (duplicate(imgData, nameStr)){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
@@ -50,15 +51,19 @@ public class AddPersonActivity extends AppCompatActivity {
         }
     }
 
-    public boolean duplicate (String data) {
+    //Checks if the person already exists in the list
+    public boolean duplicate (String data, String name) {
         for (Person p: controller.getPersonArrayList()) {
             if (p.getImageData().equals(data)) {
-                return true;
+                if (p.getName().equals(name)){
+                    return true;
+                }
             }
         }
         return false;
     }
 
+    //Cancel brings to home if no people, and back to view otherwise
     public void cancel (View v) {
         if (controller.getPersonArrayList().size() != 0){
             //brings to view people

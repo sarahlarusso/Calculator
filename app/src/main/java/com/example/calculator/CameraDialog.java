@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.widget.Toast;
 
+/*Dialog box that pops up when the user clicks "Add Person"
+Contains two buttons for the option to use the camera or the image gallery
+*/
 public class CameraDialog extends AppCompatDialogFragment {
 
     public CameraDialogListener listener;
